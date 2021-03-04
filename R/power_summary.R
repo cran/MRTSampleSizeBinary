@@ -1,0 +1,77 @@
+#' Calculate sample size at a range of power levels.
+#' 
+#' Returns sample sizes needed to achieve a range of power levels for the hypothesis test
+#' of marginal excursion effect (see Details) in the context of an MRT with binary outcomes
+#' with small sample correction using F-distribution. See the vignette for
+#' more details.
+#' 
+#' The sample size calculator is based on an asymptotic result with a small
+#' sample correction. When the calculator finds out that a sample size less than
+#' or equal to 10 is sufficient to attain the desired power, the calculator does
+#' not output the exact sample size but produces an error message, because in
+#' this situation the sample size result may not be as accurate. In general,
+#' when the output sample size is small, one might reconsider the following: (1)
+#' whether you are correctly or conservatively guessing the average of expected
+#' availability, (2) whether the duration of study is too long, (3) whether the
+#' treatment effect is overestimated, and (4) whether the power is set too low.
+#'
+#' @param avail_pattern A vector of length T that is the average availability at
+#'   each time point
+#' @param f_t           Defines marginal excursion effect MEE(t) under
+#'   alternative together with beta. Assumed to be matrix of size T*p.
+#' @param g_t           Defines success probability null curve together with
+#'   alpha. Assumed to be matrix of size T*q.
+#' @param beta          Length p vector that defines marginal excursion effect
+#'   MEE(t) under alternative together with f_t.
+#' @param alpha         Length q vector that defines success probability null
+#'   curve together with g_t.
+#' @param p_t           Length T vector of Randomization probabilities at each
+#'   time point.
+#' @param gamma         Desired Type I error
+#' @param power_levels  Vector of powers to find sample size for.
+#'
+#' @return              Dataframe containing needed sample size to achieve
+#'   user-specified power values.
+#' @export
+#'
+#' @examples            power_summary(tau_t_1, f_t_1, g_t_1,
+#'                                    beta_1, alpha_1, p_t_1, 0.05)
+power_summary <- function(avail_pattern,  
+                          f_t,             
+                          g_t,             
+                          beta,            
+                          alpha,           
+                          p_t,             
+                          gamma,
+                          power_levels = seq(from=0.6, to=0.95, by=0.05)) {
+  
+  min_power <- min(power_levels)
+  max_power <- max(power_levels)
+  
+  suppressWarnings(
+    ten_power <- mrt_binary_power(avail_pattern, f_t, g_t, beta, alpha, 
+                                  p_t, gamma, 10))
+  # check power is within (0,1)
+  if(max_power >=1 | min_power <= 0){
+    stop("Power should be between 0 and 1")
+  }
+  
+  # make sure power is sufficiently large
+  if(min_power <= ten_power) {
+    warning(strwrap(paste0("The required sample size is <=10 to attain ", 
+                           min_power, 
+                           " power for this setting. See help(power_summary) for
+                        more details"), exdent=1))
+  }
+  
+  
+  power_size <- cbind(power=power_levels, sample_size=0)
+  
+  for(r in 1:length(power_levels)){
+    power_size[r,2] <-  mrt_binary_ss(avail_pattern, f_t, g_t, 
+                                      beta, alpha, p_t, gamma, 
+                                      1-power_levels[r])
+  }
+  
+  return(power_size)
+}
