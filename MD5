@@ -1,5 +1,6 @@
-263506df35a7ed448fc8a7b1c0ed469f *DESCRIPTION
+27b5f51c7375cae891d477c648dbd595 *DESCRIPTION
 ac75904849187da5ba82e4a922f18257 *NAMESPACE
+f84186c161ed691d199f304b592ffb30 *NEWS.md
 55d101fcee5674cded4c037f6dbc7082 *R/compute_m_sigma.R
 f261c5c61cf8fa0efe2d197b0201acb4 *R/compute_ncp.R
 d0a92bd2be4c9ceff5e3d6867ecb9b7f *R/data_example.R
@@ -8,10 +9,10 @@ d0a92bd2be4c9ceff5e3d6867ecb9b7f *R/data_example.R
 f1febaa01bd3c0967442b4aa0270446e *R/min_samp.R
 319f824a3ba4b60a47e582251fb14617 *R/mrt_binary_power.R
 ac2c69c94e0ce93e38a1fb2a610fba30 *R/mrt_binary_ss.R
-c746a3e6a6a9db6ae45d65e8eb5705c3 *R/power_summary.R
+05eccfa7b3ff2e21e2878c31f9bcd179 *R/power_summary.R
 cbe950f7295570edbbf18be790d60141 *R/power_vs_n_plot.R
-5dff3deb40dedaa846e372d4b21a478a *README.md
-9d972e637a4d9ecc59b9e687ec9bb699 *build/vignette.rds
+9fd2f5dd0c64c4d076efb3ad26c79a4b *README.md
+d6e5cb8da20c8cd9e439cb189d8dcda6 *build/vignette.rds
 69bf344eae58b86da4f94b53b97acfd5 *data/alpha_1.rda
 99ee15ebb260c4d490e3389e11fde349 *data/beta_1.rda
 c6b278133b56051246216507a89d5e11 *data/f_t_1.rda
@@ -20,9 +21,9 @@ e21ca5053294e80211a2a5020a145b96 *data/g_t_1.rda
 30a48bf208c1fae44a766b93d4a82267 *data/p_t_1.rda
 47a4db47d45a41da0e0d276ba4b2c996 *data/sigma_matrix_1.rda
 f44b155e59240c46e0cdb35e0f41ad06 *data/tau_t_1.rda
-b106fa6bb135ceb3d96e00d3cbe563ea *inst/doc/sample-size-calcualtor-for-mrt.R
-546f894eb1c98f6a86f8f70f7880dac1 *inst/doc/sample-size-calcualtor-for-mrt.Rmd
-4aa62d7565e89ff4bcb2bcb0eea2ccf2 *inst/doc/sample-size-calcualtor-for-mrt.html
+4b55d499d60343a1625f78087c0daf28 *inst/doc/sample-size-calcualtor-for-mrt.R
+f9e419d461f0c883a52d0e208628d431 *inst/doc/sample-size-calcualtor-for-mrt.Rmd
+5efe7351593713102a5d4fc5171f8661 *inst/doc/sample-size-calcualtor-for-mrt.html
 0c08ca9089e5d3e20641440dea51fc42 *man/alpha_1.Rd
 51db191f3dda313efedbf0787ad65b44 *man/beta_1.Rd
 c9bdd763157fec7ced92d84f8275f6a1 *man/compute_m_sigma.Rd
@@ -48,5 +49,5 @@ f176ab3b2c97a96acd2e3c63199631e0 *tests/testthat/test-mrt_binary_power.R
 db05fd2d9713771709561ad42c24ac0c *tests/testthat/test-mrt_binary_ss.R
 1632ff1279aecb25b0820e04ac196a1a *tests/testthat/test-power_summary.R
 5663d2bc9ebc3f7782374d40803ea5d5 *tests/testthat/test-power_vs_n_plot.R
-546f894eb1c98f6a86f8f70f7880dac1 *vignettes/sample-size-calcualtor-for-mrt.Rmd
+f9e419d461f0c883a52d0e208628d431 *vignettes/sample-size-calcualtor-for-mrt.Rmd
 f3205f15dd3b166ae963fbef46269a30 *vignettes/vig_bib.bib
